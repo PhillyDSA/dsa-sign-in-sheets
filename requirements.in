@@ -3,3 +3,4 @@ dj-database-url
 gunicorn
 psycopg2
 whitenoise
+django-localflavor
