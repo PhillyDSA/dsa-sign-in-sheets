@@ -4,5 +4,9 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
+dj-database-url==0.4.2
 django==1.11.2
+gunicorn==19.7.1
+psycopg2==2.7.1
 pytz==2017.2              # via django
+whitenoise==3.3.0
