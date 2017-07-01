@@ -1,0 +1,8 @@
+{
+  "name": "DSA Simple Signin Sheets",
+  "description": "An app to allow members to sign in to events.",
+  "image": "heroku/python",
+  "repository": "https://github.com/heroku/python-getting-started",
+  "keywords": ["python", "django" ],
+  "addons": [ "heroku-postgresql" ]
+}
