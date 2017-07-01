@@ -12,14 +12,14 @@ from localflavor.us.models import (
 
 class Event(models.Model):
     name = models.CharField(max_length=255)
-    event_date = models.DateField(default=datetime.date.today, required=False)
+    event_date = models.DateField(default=datetime.date.today, blank=True)
 
 
 class EventParticipant(models.Model):
     name = models.CharField(max_length=255)
-    email = models.EmailField(required=False)
-    street_one = models.CharField(max_length=255, required=False)
-    street_two = models.CharField(max_length=255, required=False)
-    state = USStateField(required=False)
-    zip_code = USZipCodeField(required=False)
-    telephone_number = PhoneNumberField(required=False)
+    email = models.EmailField(blank=True)
+    street_one = models.CharField(max_length=255, blank=True)
+    street_two = models.CharField(max_length=255, blank=True)
+    state = USStateField(blank=True)
+    zip_code = USZipCodeField(blank=True)
+    telephone_number = PhoneNumberField(blank=True)
