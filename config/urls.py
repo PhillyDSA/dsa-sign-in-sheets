@@ -23,7 +23,9 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
 from signin_sheets.views import (
+    event_participants,
     event_signin,
+    event_to_csv,
     FirstRun,
     EventCreateView,
     EventDetailView,
@@ -40,5 +42,7 @@ urlpatterns = [
     url(r'^event/new/$', EventCreateView.as_view(), name='event-create'),
     url(r'^event/(?P<pk>[0-9]+)/delete/$', EventDeleteView.as_view(), name='event-delete'),
     url(r'^event/(?P<pk>[0-9]+)/signin/$', event_signin, name='event-signin'),
+    url(r'^event/(?P<pk>[0-9]+)/participants/$', event_participants, name='event-participants'),
+    url(r'^event/(?P<pk>[0-9]+)/export/$', event_to_csv, name='event-export'),
     url(r'^event/(?P<pk>[0-9]+)/$', EventDetailView.as_view(), name='event-detail'),
 ]

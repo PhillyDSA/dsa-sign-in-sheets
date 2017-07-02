@@ -23,4 +23,5 @@ class ParticipantSigninForm(ModelForm):
             'street_two',
             'state',
             'zip_code',
+            'telephone_number',
         ]

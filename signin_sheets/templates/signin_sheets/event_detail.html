@@ -3,10 +3,10 @@
 {% block title %}Your event - {{ object.name }} - has been created{% endblock %}
 
 {% block content %}
-    <h1 class="fw3">Your event, {{ object.name }}, is live. Choose from an action below.</h1>
-    <a href="#" class="br2 pa3 ph4 bg-dark-red white dib tc link fw4">Sign out and go to event</a>
-    <a href="#" class="br2 pa3 ph4 bg-dark-red white dib tc link fw4 ml3">Show Participants</a>
-    <a href="{% url 'event-delete' object.pk %}" class="br2 pa3 ph4 bg-dark-red white dib tc link fw4 ml3">Delete Event</a>
+<h1 class="fw3">Your event, {{ object.name }}, is live. Choose from an action below.</h1>
+<a href="{% url 'event-signin' object.pk %}" class="br2 pa3 ph4 bg-dark-red white dib tc link fw4 ma2">Sign out and go to event</a>
+<a href="{% url 'event-participants' object.pk %}" class="br2 pa3 ph4 bg-dark-red white dib tc link fw4 ma2">Show Participants</a>
+<a href="{% url 'event-delete' object.pk %}" class="br2 pa3 ph4 bg-dark-red white dib tc link fw4 ma2">Delete Event</a>
 
 <p class="lh-copy measure mt4">If you are going to be using this computer sign in participants, for their security, it is <em>highly</em> recommended that you sign out of this session before allowing anyone to sign in. In fact, it's required.</p>
 

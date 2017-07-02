@@ -28,23 +28,54 @@
     input[type="text"],
     input[type="password"],
     input[type="email"] {
+        width: 100%;
         border: none;
         background: transparent;
         border-bottom: 1px dotted white;
         color: white;
     }
+    @keyframes fadeOutAndClear {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1);
+            opacity: 0;
+        }
+        100% {
+            opacity: 0;
+            transform: scale(0);
+        }
+    }
+    .messages {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #393e41;
+        animation-delay: 1s;
+        animation-duration: 1s;
+        animation-name: fadeOutAndClear;
+        animation-fill-mode: forwards;
+    }
 </style>
 
 <body>
 
-<nav class="w-100 fixed white pv3 ph4">
-    <a href="{% url 'event-list' %}" class="fw4 f4 light-blue link mr3">List Events</a>
-    <a href="{% url 'event-create' %}" class="fw4 f4 light-blue link mr3">New Event</a>
+<nav class="bg-white w-100 fixed pv3 ph4">
+    {% if request.user.is_anonymous %}
+        <a href="{% url 'login' %}" class="fw3 f4 black link mr3">Login</a>
+    {% else %}
+        <a href="{% url 'event-list' %}" class="fw3 f4 black link mr3">My Events</a>
+        <a href="{% url 'event-create' %}" class="fw3 f4 black link mr3">New Event</a>
+    {% endif %}
 </nav>
 
-<main class="pv5 pa4">
-{% block content %}
-{% endblock %}
+<main class="pv5 pa4 w-80-ns w-100">
+    {% block content %}
+    {% endblock %}
 </main>
 </body>
 </html>

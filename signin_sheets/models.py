@@ -34,6 +34,7 @@ class EventParticipant(models.Model):
     state = USStateField(blank=True)
     zip_code = USZipCodeField(blank=True)
     telephone_number = PhoneNumberField(blank=True)
+    event = models.ForeignKey(Event, null=True)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name or ""} ({self.email or "[No Email Given]"})'

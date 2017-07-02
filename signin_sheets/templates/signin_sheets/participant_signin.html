@@ -1,8 +1,25 @@
-{% extends 'base.html %}
+{% extends 'base.html' %}
 {% block title %}Welcome! Please sign in!{% endblock %}
 
 {% block content %}
 
-Hi.
+{% if messages %}
+    {% for message in messages %}
+        <div class="messages tc center pa4 dt">
+            <div class="dtc v-mid f1 fw3 measure center">
+            {{ message|safe }}
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<div class="measure-wide center">
+    <h1 class="fw3">Let&rsquo;s get you signed in!</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form }}
+    <input type="submit" value="Sign in" class="b--none br2 pa3 ph4 bg-dark-red white dib tc fw4 mv4" />
+</div>
+
 
 {% endblock %}

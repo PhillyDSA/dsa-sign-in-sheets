@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Participants for {{ event.name }}{% endblock %}
+
+{% block content %}
+<h1 class="fw3 ">{{ event.name }}</h1><a href="{% url 'event-export' event.id %}" class="br2 pa3 bg-dark-red white dib tc link fw4 mv2">Download CSV (Excel)</a>
+<ul class="list pl0 measure">
+{% for part in participants %}
+    <li class="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--white-30">{{ part.first_name }}</li>
+{% endfor %}
+</ul>
+{% endblock %}
