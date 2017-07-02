@@ -8,6 +8,9 @@
         color: #f6f7eb;
         font-size: 18px;
     }
+    nav {
+        background-color: #393e41;
+    }
     label {
         display: block;
         margin: 2rem 0 0.5rem 0;
@@ -53,6 +56,7 @@
         top: 0;
         left: 0;
         width: 100vw;
+        max-width: 100%;
         height: 100vh;
         background: #393e41;
         animation-delay: 1s;
@@ -64,12 +68,12 @@
 
 <body>
 
-<nav class="bg-white w-100 fixed pv3 ph4">
+<nav class="w-100 fixed pv3 ph4">
     {% if request.user.is_anonymous %}
-        <a href="{% url 'login' %}" class="fw3 f4 black link mr3">Login</a>
+        <a href="{% url 'start' %}" class="fw4 f6 white link mr3">&#127801; HOME</a>
     {% else %}
-        <a href="{% url 'event-list' %}" class="fw3 f4 black link mr3">My Events</a>
-        <a href="{% url 'event-create' %}" class="fw3 f4 black link mr3">New Event</a>
+        <a href="{% url 'event-list' %}" class="fw4 f4 white link mr3">My Events</a>
+        <a href="{% url 'event-create' %}" class="fw4 f4 white link mr3">New Event</a>
     {% endif %}
 </nav>
 

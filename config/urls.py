@@ -31,14 +31,16 @@ from signin_sheets.views import (
     EventDetailView,
     EventListView,
     EventDeleteView,
+    HomePageView,
 )
 
 urlpatterns = [
+    url(r'^$', HomePageView.as_view(), name='home'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^admin/', admin.site.urls),
     url(r'^start/$', FirstRun.as_view(), name='start'),
-    url(r'^events/list/$', EventListView.as_view(), name='event-list'),
+    url(r'^event/list/$', EventListView.as_view(), name='event-list'),
     url(r'^event/new/$', EventCreateView.as_view(), name='event-create'),
     url(r'^event/(?P<pk>[0-9]+)/delete/$', EventDeleteView.as_view(), name='event-delete'),
     url(r'^event/(?P<pk>[0-9]+)/signin/$', event_signin, name='event-signin'),

@@ -4,7 +4,7 @@
 
 {% block content %}
     {% if object_list %}
-        <h1 class='fw3'>Hello, {{ request.user.username }}. Here are your events:</h1>
+        <h1 class='fw3'>Here are your events:</h1>
     {% endif %}
     {% for event in object_list %}
         <a href="{{ event.get_absolute_url }}" class="link white db mb4 pv2">{{ event.name }}</a>

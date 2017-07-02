@@ -13,8 +13,8 @@
     {% endfor %}
 {% endif %}
 
-<div class="measure-wide center">
-    <h1 class="fw3">Let&rsquo;s get you signed in!</h1>
+<div class="measure-wide">
+    <h1 class="fw3">Welcome to {{ event.name }}! Let&rsquo;s get you signed in!</h1>
     <form action="" method="POST">
         {% csrf_token %}
         {{ form }}

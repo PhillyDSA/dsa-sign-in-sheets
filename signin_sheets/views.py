@@ -14,11 +14,17 @@ from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponse, HttpResponseForbidden
 from django.shortcuts import render, redirect, reverse
 
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, TemplateView
 from django.views.generic.edit import CreateView, FormView, DeleteView
 
 from signin_sheets.models import Event, EventParticipant
 from signin_sheets.forms import ParticipantSigninForm
+
+
+class HomePageView(TemplateView):
+    """Front page kind of view."""
+
+    template_name = 'signin_sheets/home.html'
 
 
 class FirstRun(CreateView):
@@ -69,10 +75,13 @@ def event_signin(request, *args, **kwargs):
     if not request.user.is_anonymous():
         logout(request)
 
+    event = Event.objects.get(pk=kwargs.get('pk', None))
+
     if request.method == "GET":
         return render(request,
                       'signin_sheets/participant_signin.html',
-                      {'form': ParticipantSigninForm})
+                      {'form': ParticipantSigninForm,
+                       'event': event})
     elif request.method == "POST":
         form = ParticipantSigninForm(request.POST)
         if form.is_valid():
