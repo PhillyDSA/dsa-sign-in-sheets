@@ -3,8 +3,9 @@
 
 {% block content %}
 {% if user.is_anonymous %}
-<h1 class="fw3 white">Begin by creating an account, then you'll be logged in an able to create events.</h1>
-<a href="{% url 'start' %}" class="link white br2 pv2 ph4 bg-dark-red">Start Here</a>
+<h1 class="fw3 white">Begin by creating an account, then you'll be logged in an able to create events. Already have an account? Smash that sign in link.</h1>
+<a href="{% url 'start' %}" class="ma2 link white br2 pv2 ph4 bg-dark-red">Start Here</a>
+<a href="{% url 'login' %}" class="ma2 link white br2 pv2 ph4 bg-dark-red">Sign in</a>
 {% else %}
 <h1 class="fw3 white">You&rsquo;ve already created an account, so you&rsquo;re good to go.</h1>
 <a href="{% url 'event-list' %}" class="link white br2 pv2 ph4 bg-dark-red">Go to my events</a>

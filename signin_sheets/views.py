@@ -139,3 +139,8 @@ def event_to_csv(request, *args, **kwargs):
             part.zip_code,
             part.telephone_number,])
     return response
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('/')

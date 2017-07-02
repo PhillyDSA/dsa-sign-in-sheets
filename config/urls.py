@@ -26,6 +26,7 @@ from signin_sheets.views import (
     event_participants,
     event_signin,
     event_to_csv,
+    user_logout,
     FirstRun,
     EventCreateView,
     EventDetailView,
@@ -37,7 +38,7 @@ from signin_sheets.views import (
 urlpatterns = [
     url(r'^$', HomePageView.as_view(), name='home'),
     url(r'^login/$', auth_views.login, name='login'),
-    url(r'^logout/$', auth_views.logout, name='logout'),
+    url(r'^logout/$', user_logout, name='logout'),
     url(r'^admin/', admin.site.urls),
     url(r'^start/$', FirstRun.as_view(), name='start'),
     url(r'^event/list/$', EventListView.as_view(), name='event-list'),
