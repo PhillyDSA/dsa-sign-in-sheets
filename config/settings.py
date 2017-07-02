@@ -42,12 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
+    # 'django.contrib.staticfiles',
     'signin_sheets',
 ]
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -119,18 +121,27 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-ALLOWED_HOSTS = ['*']
+# Update database configuration with $DATABASE_URL.
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_URL = '/static/'
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_ROOT, 'static'),
+]
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/events/list/'
+LOGIN_REDIRECT_URL = '/event/list/'

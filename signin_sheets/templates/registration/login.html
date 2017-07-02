@@ -3,10 +3,10 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-        <h1 class='fw3'>Let&rsquo;s get you logged in.</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Login" class="fw3 bg-dark-red pv2 ph4 b--none white br2" />
-        </form>
+    <h1 class='fw3'>Let&rsquo;s get you logged in.</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Login" class="fw3 bg-dark-red pv2 ph4 b--none white br2" />
+    </form>
 {% endblock %}
