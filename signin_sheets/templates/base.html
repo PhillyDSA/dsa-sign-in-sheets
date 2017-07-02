@@ -70,10 +70,12 @@
 
 <nav class="w-100 fixed pv3 ph4">
     {% if request.user.is_anonymous %}
-        <a href="{% url 'start' %}" class="fw4 f6 white link mr3">&#127801; HOME</a>
+        <a href="/" class="fw4 f6 white link mr3">&#127801; HOME</a>
     {% else %}
+        <a href="/" class="fw4 f6 white link mr3">&#127801; HOME</a>
         <a href="{% url 'event-list' %}" class="fw4 f4 white link mr3">My Events</a>
         <a href="{% url 'event-create' %}" class="fw4 f4 white link mr3">New Event</a>
+        <a href="{% url 'logout' %}" class="fw4 f4 white link mr3">Logout</a>
     {% endif %}
 </nav>
 
