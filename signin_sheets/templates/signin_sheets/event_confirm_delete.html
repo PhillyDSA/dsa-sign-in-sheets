@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <h1 class='fw3'>Are you sure you want to delete "{{ object }}"</h1>
+    <input type='submit' value='Confirm' class="db mt4 bg-dark-red b--none pa3 white br2" />
+</form>
+
+{% endblock %}

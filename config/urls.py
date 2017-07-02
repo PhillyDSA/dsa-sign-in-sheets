@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# Copyright (c) 2017 Jeremy Low
+
 """dsa_signin_sheets URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,7 +20,25 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
+
+from signin_sheets.views import (
+    event_signin,
+    FirstRun,
+    EventCreateView,
+    EventDetailView,
+    EventListView,
+    EventDeleteView,
+)
 
 urlpatterns = [
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^admin/', admin.site.urls),
+    url(r'^start/$', FirstRun.as_view(), name='start'),
+    url(r'^events/list/$', EventListView.as_view(), name='event-list'),
+    url(r'^event/new/$', EventCreateView.as_view(), name='event-create'),
+    url(r'^event/(?P<pk>[0-9]+)/delete/$', EventDeleteView.as_view(), name='event-delete'),
+    url(r'^event/(?P<pk>[0-9]+)/signin/$', event_signin, name='event-signin'),
+    url(r'^event/(?P<pk>[0-9]+)/$', EventDetailView.as_view(), name='event-detail'),
 ]

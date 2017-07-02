@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
+<title>DSA Simple Signin Sheets - {% block title %}{% endblock %}</title>
+<style>
+    html {
+        background-color: #393e41;
+        color: #f6f7eb;
+        font-size: 18px;
+    }
+    label {
+        display: block;
+        margin: 2rem 0 0.5rem 0;
+        font-weight: 400;
+    }
+    ul {
+        padding: 0;
+        list-style: none;
+    }
+    .helptext {
+        color: #ddd;
+        display: block;
+        padding: 0.25rem 0 0.25rem 0;
+    }
+    .helptext:hover {
+        color: #fff;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        border: none;
+        background: transparent;
+        border-bottom: 1px dotted white;
+        color: white;
+    }
+</style>
+
+<body>
+
+<nav class="w-100 fixed white pv3 ph4">
+    <a href="{% url 'event-list' %}" class="fw4 f4 light-blue link mr3">List Events</a>
+    <a href="{% url 'event-create' %}" class="fw4 f4 light-blue link mr3">New Event</a>
+</nav>
+
+<main class="pv5 pa4">
+{% block content %}
+{% endblock %}
+</main>
+</body>
+</html>

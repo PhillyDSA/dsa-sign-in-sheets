@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# Copyright (c) 2017 Jeremy Low
+
 """
 Django settings for dsa_signin_sheets project.
 
@@ -131,3 +136,6 @@ ALLOWED_HOSTS = ['*']
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/events/list/'

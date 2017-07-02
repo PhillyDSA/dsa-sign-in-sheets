@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="dt center vh-100">
+    <div class="pa4 dtc v-mid">
+        <h1 class='fw3'>Before you can begin, please create an admin account.</h1>
+        <form action='' method='POST'>
+            {% csrf_token %}
+            {{ form.as_p }}
+                <input type='submit' value="Create user" class="fw3 bg-dark-red br2 b--none white pa2 ph4" />
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Your events{% endblock %}
+
+{% block content %}
+    <h1 class='fw3'>Hello, {{ request.user.username }}. Here are your  events:</h1>
+    {% for event in object_list %}
+        <a href="{{ event.get_absolute_url }}" class="link white db mb4 pv2">{{ event.name }}</a>
+    {% empty %}
+        <h1 class="fw3">You don&rsquo;t currently have any events.</h1>
+        <a href="{% url 'event-create' %}" class="link white bg-dark-red pv2 ph4 dib br2 fw4">Create event</a>
+    {% endfor %}
+{% endblock %}
