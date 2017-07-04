@@ -2,10 +2,10 @@
   "name": "DSA Simple Signin Sheets",
   "description": "An app to allow members to sign in to events.",
   "image": "heroku/python",
-  "repository": "https://github.com/heroku/python-getting-started",
+  "repository": "https://github.com/jeremylow/dsa-sign-in-sheets",
   "keywords": ["python", "django" ],
   "addons": [ "heroku-postgresql" ],
   "scripts": {
-    "postdeploy": "heroku config:set SECRET_KEY=$(python -c 'import random; import string; print(\"\".join([random.SystemRandom().choice(\"{}{}{}\".format(string.ascii_letters, string.digits, string.punctuation)) for i in range(50)]))')"
+    "postdeploy": "postdeploy.sh"
   }
 }
