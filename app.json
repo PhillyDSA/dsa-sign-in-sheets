@@ -4,8 +4,5 @@
   "image": "heroku/python",
   "repository": "https://github.com/jeremylow/dsa-sign-in-sheets",
   "keywords": ["python", "django" ],
-  "addons": [ "heroku-postgresql" ],
-  "scripts": {
-    "postdeploy": "postdeploy.sh"
-  }
+  "addons": [ "heroku-postgresql" ]
 }
