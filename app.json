@@ -4,5 +4,11 @@
   "image": "heroku/python",
   "repository": "https://github.com/jeremylow/dsa-sign-in-sheets",
   "keywords": ["python", "django" ],
-  "addons": [ "heroku-postgresql" ]
+  "addons": [ "heroku-postgresql" ],
+  "env": {
+    "DJANGO_SECRET_KEY": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    }
+  }
 }
