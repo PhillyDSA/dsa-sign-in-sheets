@@ -1,7 +1,7 @@
 {
   "name": "DSA Simple Signin Sheets",
   "env": {
-    "DJANGO_SECRET_KEY": {
+    "SECRET_KEY": {
       "generator": "secret",
       "required": true
     }
