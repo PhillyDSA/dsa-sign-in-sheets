@@ -31,6 +31,7 @@ class EventParticipant(models.Model):
     email = models.EmailField(blank=True)
     street_one = models.CharField(max_length=255, blank=True)
     street_two = models.CharField(max_length=255, blank=True)
+    city = models.CharField(max_length=255, blank=True)
     state = USStateField(blank=True)
     zip_code = USZipCodeField(blank=True)
     telephone_number = PhoneNumberField(blank=True)
