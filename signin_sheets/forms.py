@@ -12,7 +12,6 @@ class ParticipantSigninForm(ModelForm):
     """Form to sign in an event participant."""
 
     def __init__(self, *args, **kwargs):
-        import ipdb; ipdb.set_trace()
         super().__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs.update({
