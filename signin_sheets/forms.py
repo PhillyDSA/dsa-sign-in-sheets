@@ -28,6 +28,7 @@ class ParticipantSigninForm(ModelForm):
             'email',
             'street_one',
             'street_two',
+            'city',
             'state',
             'zip_code',
             'telephone_number',
