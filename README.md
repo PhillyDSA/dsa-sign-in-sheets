@@ -24,8 +24,8 @@ _These instructions may seem long, but we've tried to be as detailed as possible
 2.	Confirm your Heroku account. They'll send you an email.
 3.	Come back here and click on the "Deploy to Heroku" button above. ("Deploy" here means start it running in Heroku-speak.)
 4.	You'll be presented with a page to deploy your application. The only thing that you might/should want to change is the "App Name".
-	a.	The name you choose will determine the website name where folks sign in. If you choose for example "phillydsa", the address for the site will be `phillydsa.herokuapp.com`.
-    b. If you don't make a choice there, a (usually) silly name will be assigned.
+	- The name you choose will determine the website name where folks sign in. If you choose for example "phillydsa", the address for the site will be `phillydsa.herokuapp.com`.
+	- If you don't make a choice there, a (usually) silly name will be assigned.
 5. Don't make any other changes on the page unless you have a really good reason to.
 6. At the bottom, there's a big button that says "Deploy". Click on that and you'll see a bunch of stuff happen, which just means that your site is being configured! It might take a while, so just hold tight.
 7. Awesome! So when all's done on the backend, you should see a "View App" button appear. Click on that.
