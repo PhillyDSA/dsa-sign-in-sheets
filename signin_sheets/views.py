@@ -124,6 +124,7 @@ def event_to_csv(request, *args, **kwargs):
             'email',
             'street_one',
             'street_two',
+            'city',
             'state',
             'zip_code',
             'telephone_number',
@@ -135,6 +136,7 @@ def event_to_csv(request, *args, **kwargs):
             part.email,
             part.street_one,
             part.street_two,
+            part.city,
             part.state,
             part.zip_code,
             part.telephone_number,])
