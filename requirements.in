@@ -4,3 +4,4 @@ gunicorn
 psycopg2
 whitenoise
 django-localflavor
+django-phonenumber-field[phonenumberslite]
