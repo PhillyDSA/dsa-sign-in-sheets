@@ -36,16 +36,24 @@ from signin_sheets.views import (
 )
 
 urlpatterns = [
-    url(r'^$', HomePageView.as_view(), name='home'),
-    url(r'^login/$', auth_views.login, name='login'),
-    url(r'^logout/$', user_logout, name='logout'),
-    url(r'^admin/', admin.site.urls),
-    url(r'^start/$', FirstRun.as_view(), name='start'),
-    url(r'^event/list/$', EventListView.as_view(), name='event-list'),
-    url(r'^event/new/$', EventCreateView.as_view(), name='event-create'),
-    url(r'^event/(?P<pk>[0-9]+)/delete/$', EventDeleteView.as_view(), name='event-delete'),
-    url(r'^event/(?P<pk>[0-9]+)/signin/$', event_signin, name='event-signin'),
-    url(r'^event/(?P<pk>[0-9]+)/participants/$', event_participants, name='event-participants'),
-    url(r'^event/(?P<pk>[0-9]+)/export/$', event_to_csv, name='event-export'),
-    url(r'^event/(?P<pk>[0-9]+)/$', EventDetailView.as_view(), name='event-detail'),
+    url(r"^$", HomePageView.as_view(), name="home"),
+    url(r"^login/$", auth_views.LoginView.as_view(), name="login"),
+    url(r"^logout/$", user_logout, name="logout"),
+    url(r"^admin/", admin.site.urls),
+    url(r"^start/$", FirstRun.as_view(), name="start"),
+    url(r"^event/list/$", EventListView.as_view(), name="event-list"),
+    url(r"^event/new/$", EventCreateView.as_view(), name="event-create"),
+    url(
+        r"^event/(?P<pk>[0-9]+)/delete/$",
+        EventDeleteView.as_view(),
+        name="event-delete",
+    ),
+    url(r"^event/(?P<pk>[0-9]+)/signin/$", event_signin, name="event-signin"),
+    url(
+        r"^event/(?P<pk>[0-9]+)/participants/$",
+        event_participants,
+        name="event-participants",
+    ),
+    url(r"^event/(?P<pk>[0-9]+)/export/$", event_to_csv, name="event-export"),
+    url(r"^event/(?P<pk>[0-9]+)/$", EventDetailView.as_view(), name="event-detail"),
 ]
