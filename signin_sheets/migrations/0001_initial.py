@@ -8,6 +8,8 @@ from django.db import migrations, models
 import django.db.models.deletion
 import localflavor.us.models
 
+from phonenumber_field.modelfields import PhoneNumberField
+
 
 class Migration(migrations.Migration):
 
@@ -19,27 +21,63 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Event',
+            name="Event",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
-                ('event_date', models.DateField(blank=True, default=datetime.date.today)),
-                ('event_admin', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255)),
+                (
+                    "event_date",
+                    models.DateField(blank=True, default=datetime.date.today),
+                ),
+                (
+                    "event_admin",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='EventParticipant',
+            name="EventParticipant",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('first_name', models.CharField(max_length=255)),
-                ('last_name', models.CharField(blank=True, max_length=255)),
-                ('email', models.EmailField(blank=True, max_length=254)),
-                ('street_one', models.CharField(blank=True, max_length=255)),
-                ('street_two', models.CharField(blank=True, max_length=255)),
-                ('state', localflavor.us.models.USStateField(blank=True, max_length=2)),
-                ('zip_code', localflavor.us.models.USZipCodeField(blank=True, max_length=10)),
-                ('telephone_number', localflavor.us.models.PhoneNumberField(blank=True, max_length=20)),
-                ('event', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='signin_sheets.Event')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("first_name", models.CharField(max_length=255)),
+                ("last_name", models.CharField(blank=True, max_length=255)),
+                ("email", models.EmailField(blank=True, max_length=254)),
+                ("street_one", models.CharField(blank=True, max_length=255)),
+                ("street_two", models.CharField(blank=True, max_length=255)),
+                ("state", localflavor.us.models.USStateField(blank=True, max_length=2)),
+                (
+                    "zip_code",
+                    localflavor.us.models.USZipCodeField(blank=True, max_length=10),
+                ),
+                ("telephone_number", PhoneNumberField(blank=True, max_length=20)),
+                (
+                    "event",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="signin_sheets.Event",
+                    ),
+                ),
             ],
         ),
     ]
